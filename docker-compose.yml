@@ -1,0 +1,25 @@
+volumes:
+  postgres_data:
+
+services:
+  db:
+    container_name: omskhackers_db
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-omskhackers_db}
+      POSTGRES_USER: ${DB_USER:-user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-user}
+      POSTGRES_PORT: ${DB_PORT:-5432}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations/:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${DB_USER:-user} -d ${DB_NAME:-omskhackers_db}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    ports:
+      - "5432:5432"
+    env_file:
+      .env
