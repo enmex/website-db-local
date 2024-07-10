@@ -25,7 +25,7 @@ CREATE UNIQUE INDEX sections_idx ON sections(name);
 
 CREATE TABLE articles (
     id uuid NOT NULL DEFAULT uuid_generate_v4() CONSTRAINT articles_pk PRIMARY KEY,
-    author_id uuid NOT NULL REFERENCES users (id),
+    author VARCHAR(100) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
     reading_time INT NOT NULL,
