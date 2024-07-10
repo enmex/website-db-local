@@ -30,6 +30,8 @@ created_at - Время создания статьи,
 
 updated_at - Время последнего редактирования статьи,
 
+thumbnail_url - URL картинки превью статьи,
+
 reading_time - Время чтения статьи в минутах,
 
 section_id - Внешний ключ на раздел статьи (ссылка на id),
@@ -87,6 +89,6 @@ SELECT * FROM articles WHERE id = 'b0a54e15-c8dc-4aa4-b3fb-03bb76f5fb95';
 
 ## Схема БД
 
-![alt text](schema.png)
+![schema](schema.png)
 
 Ссылка на схему: https://drawsql.app/teams/enmex/diagrams/omskhackers
