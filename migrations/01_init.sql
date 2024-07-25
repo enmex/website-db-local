@@ -29,6 +29,7 @@ CREATE TABLE articles (
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
     thumbnail_url VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL, 
     reading_time INT NOT NULL,
     section_id uuid NOT NULL REFERENCES sections (id),
     title VARCHAR(100) NOT NULL,
